@@ -1,6 +1,7 @@
 package com.example.lotteryStatsService;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -13,7 +14,7 @@ public class Ticket {
     private String numbers;
 
     @Column(name = "date_played")
-    private Date datePlayed;
+    private LocalDate datePlayed;
 
     private boolean valid;
 

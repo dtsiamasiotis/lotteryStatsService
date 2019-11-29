@@ -19,10 +19,16 @@ public class LotteryStatsController {
         this.ticketRepository = ticketRepository;
     }
 
-    @GetMapping("/test/{date}")
-    public String testGet(@PathVariable("date") @DateTimeFormat(pattern="ddMMyyyy") LocalDate minlimit)
+    @GetMapping("/numberOfTicketsByDate/{date}")
+    public int numberOfTicketsByDate(@PathVariable("date") @DateTimeFormat(pattern="ddMMyyyy") LocalDate minlimit)
     {
         LocalDate maxlimit = minlimit.plusDays(1);
-        return String.valueOf(ticketRepository.findCountOfTicketsByDate(minlimit,maxlimit));
+        return ticketRepository.findTicketsByValidIsTrueAndDatePlayedBetween(minlimit,maxlimit).size();
+    }
+
+    @GetMapping("/numberOfTicketsInADraw/{drawId}")
+    public int numberOfTicketsInADraw(@PathVariable("drawId") Long drawId)
+    {
+        return ticketRepository.findTicketsByDrawIdAndValidIsTrue(drawId).size();
     }
 }

@@ -23,7 +23,7 @@ public class TicketRepositoryTest {
     public void testFindCountOfTicketsByDate() throws ParseException {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         Date dateplayed = format.parse("2019-11-21");
-        int count = ticketRepository.findCountOfTicketsByDate(dateplayed);
-        System.out.println(count);
+       // int count = ticketRepository.findCountOfTicketsByDate(dateplayed);
+        //System.out.println(count);
     }
 }
