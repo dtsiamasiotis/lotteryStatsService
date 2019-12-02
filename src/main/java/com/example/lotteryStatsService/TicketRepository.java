@@ -1,6 +1,5 @@
 package com.example.lotteryStatsService;
 
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import java.time.LocalDate;
@@ -12,4 +11,5 @@ public interface TicketRepository extends CrudRepository<Ticket,Long> {
     List<Ticket> findTicketsByValidIsTrueAndDatePlayedBetween(LocalDate minlimit,LocalDate maxlimit);
 
     List<Ticket> findTicketsByDrawIdAndValidIsTrue(Long drawId);
+
 }
